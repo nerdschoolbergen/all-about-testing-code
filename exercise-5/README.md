@@ -11,12 +11,8 @@ class RocketLauncher {
     public void launchRocket() { /* Launches an actual rocket */ }
 }
 class LaunchControl{
-    private RocketLauncher rocketLauncher;
-    public LaunchControl() {
-        this.rocketLauncher = new RocketLauncher();
-    }
     public string executeLaunch() {
-        return this.rocketLauncher.launchRocket();
+        return new RocketLauncher().launchRocket();
     }
 }
 ```
