@@ -11,10 +11,38 @@ You will learn how to:
 
 ## 3.1. Good naming conventions
 
+Using good naming conventions when naming tests creates a form of executable documentation for your application. It makes maintaining the code easier by it easier to look up what test does what, and helps readability.
+
+### Naming anti-patterns
+
+```java
+@Test
+public void test1() {
+  ...
+}```
+- Completely unreadable.
+
+
+```java
+@Test
+public void oranges() {
+  ...
+}```
+- Something to do with oranges?
+
+```java
+@Test
+public void makeJuice() {
+  ...
+}```
+- Probably tests the `makeJuice`-method?
+- Given, when, then...?
+
+
 ## 3.2. Don't repeat yourself
 
 ## 3.3. Testing behavior, not implementation
 
-## 3.3. Making tests easy to diagnose on failure
+## 3.4. Making tests easy to diagnose on failure
 
 ### [Go to exercise 4 ==>](../exercise-4/README.md)
