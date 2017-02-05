@@ -49,7 +49,7 @@ I now have an ``Calculator`` class that looks like this without having to write 
  
 ![tdd1](../images/tdd6.PNG)
 
-Back in ``CalculatorTest`` I add the last line, the assert for the result.
+Back in ``CalculatorTest`` I add the last line, then assert for the result.
 
 ![tdd1](../images/tdd7.PNG)
 
@@ -89,14 +89,14 @@ Write the test, implement the feature, make the test pass, refactor.
 ## Tasks
 
 Exercise 6 contains a skeleton for a simple ``MonthParser`` class. It has one function: `parseMonth(int numberOfMonth)`
-which given a number returns a ``Month`` instance containing the month's name ("January", "February", etc) and the number of days
+which given a number, returns a ``Month`` instance containing the month's name ("January", "February", etc) and the number of days
 it contains.
 
 **Do the following:**
 
 - Open exercise6 pom.xml file as a project in IntelliJ
-- Using TDD **only**, implement the ``parseMonth`` method.
+- Using TDD **only**, implement the ``parseMonth`` method for all 12 months.
 - You should go through the red-green-refactor cycle 12 times in this exercise, one for each month.
 - Copy & pasting code, or implementing more than one month at a time is strictly forbidden.
-- There should be at least one test per possible month
+- There should be at least one test per month
 - There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).
