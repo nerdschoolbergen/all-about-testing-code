@@ -23,7 +23,7 @@ The problem with the above example is that the `RocketLauncher` dependency is im
 
 The first step to solving this issue, is to apply something called inversion of control, based on what is known as the Dependency Inversion Principle, the "D" in the SOLID patterns, which is another Nerdschool workshop.
 
-Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to take in an instance of `RocketLauncher` through its constructor. We have thereby _inverted_ control of the dependency to the caller of `LaunchControl`.
+Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to take in an instance of `RocketLauncher` through its constructor. We have thereby _inverted control_ of the dependency to the _caller_ of `LaunchControl`.
 
 ```java
 class LaunchControl{
@@ -70,28 +70,34 @@ Finally, the `LaunchControl` class is free of any hard dependency. It now accept
 - Open the exercise 5 pom.xml as a project in IntelliJ
 - Look through the code
 - Apply inversion of control to the `RocketLauncher` and `PreFlightChecks` dependencies inside the `LaunchControl` class.
-- In `LaunchControlTests.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
+- In `LaunchControlTest.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
 
 ## Mocks and stubs
 
-A mock is a dummy implementation of an interface or abstract class that we create and inject during testing so that we can test our code in isolation. We typically use a framework for creating mocks when we test.
+A _mock_ is a dummy implementation of an interface or abstract class that we create and inject during testing so that we can test our code in isolation. We typically use a framework for creating mocks when we're writing tests.
+However, to get a good understanding of how this works in simple cases, we're not going to use a framework today but rather make our own dummy implementations for testing purposes.
 
-A stub is the exact same thing as a mock! Well, in code it's the same thing. The difference between mocks and stubs lie in how we work with them in practice.
+> A popular mocking framework for Java is [mockito](http://site.mockito.org/)
 
-**We use mocks to _assert a condition has been fulfilled during our test_.**
+A _stub_ is the exact same thing as a mock! Well, it's the same thing in code implementation. The difference between mocks and stubs lie in how we, as programmers, think about them when we read code.
 
-**We use stubs to _control the flow of the application during the test_.**
+**We use _mocks_ to _assert a condition has been fulfilled during our test_.**
 
-In other words, if we want to write a test that asserts that the `RocketLauncher.launchRocket()` method was called during execution of `LaunchControl.executeLaunch()`, we would create a _mock_. If we just want a method to return a certain value so that a certain condition is met in order to test what we want to test, we'd use a _stub_.
+**We use _stubs_ to _control the flow of the application during the test_.**
+
+In other words, if we want to write a test that asserts that the `RocketLauncher.launchRocket()` method was called during execution of `LaunchControl.executeLaunch()`, we would create a _mock_.
+If we just want a method to return a certain value so that a certain condition is met in order to test what we want to test, we'd use a _stub_. In practice we would create the same object in code, but name and approach them differently.
+
+> Different test frameworks has different implementations and ideas for mocks and stubs. Some frameworks call everything a mock, some differentiate between the two in significant ways.
 
 **Do the following:**
 
-- If you haven't already, create the classes `RocketLauncherStub.java` and `PreFlightChecksStub.java` which implement the interfaces they need.
-- In `LaunchControlTests.java`, create the following tests:
-    - executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket
-    - executeLaunch_whenHasFuelAndDoorIsNotClosed_doesNotLaunchRocket
-    - executeLaunch_whenHasFuelAndDoorIsClosed_launchesRocket
-    - executeLaunch_whenNoFuelAndDoorIsClosed_doesNotLaunchRocket
+- If you haven't already, create the classes `RocketLauncherStub.java` and `PreFlightChecksStub.java` which implement the interfaces you might expect them to.
+- In `LaunchControlTest.java`, create the following tests:
+    - `executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket`
+    - `executeLaunch_whenHasFuelAndDoorIsNotClosed_doesNotLaunchRocket`
+    - `executeLaunch_whenHasFuelAndDoorIsClosed_launchesRocket`
+    - `executeLaunch_whenNoFuelAndDoorIsClosed_doesNotLaunchRocket`
 - Make all tests pass
 
 ## Adapter pattern
@@ -151,4 +157,4 @@ public class Agreement {
 
 - Refactor `PreFlightChecks` to use the adapter pattern
 - Create `PreFligthChecksTests.java` in the test dir
-- Create test cases for each method that verifies the correct result is returned given "user" (fake) input.
+- Create test cases for each method that verifies the correct result is returned given "user" (fake) input. You control the user input as stubs in your tests.
