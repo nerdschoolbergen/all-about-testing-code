@@ -1,160 +1,102 @@
-# Exercise 5 - Dependencies
+# Exercise 4 - Test Driven Development (TDD)
 
-This exercise will take you through how to deal with dependencies when working with unit tests.
+In this exercise we'll learn how to apply the TDD methodology when we're writing code.  
 
-## Identifying dependencies
+## What is TDD
 
-All non-trivial applications has dependencies between classes, between modules, and between layers. In this code, the class `LaunchControl` has a dependency on `RocketLauncher` which does exactly what you think it does:
+Test Driven Development is a way of writing code where we will **always** (a-l-w-a-y-s) write tests for our code
+**before** we write the implementation code.
 
-```java
-class RocketLauncher {
-    public void launchRocket() { /* Launches an actual rocket */ }
-}
-class LaunchControl{
-    public string executeLaunch() {
-        return new RocketLauncher().launchRocket();
-    }
-}
-```
+But wait! This means our code won't even compile, silly! Why yes. Yes it does.
 
-The problem with the above example is that the `RocketLauncher` dependency is impossible to work around. We cannot possibly call `LaunchControl.executeLaunch()` without actually launching the rocket. In other words, this is untestable.
+So how does this makes sense?
 
-## Inversion of Control
+## How to do TDD
 
-The first step to solving this issue, is to apply something called inversion of control, based on what is known as the Dependency Inversion Principle, the "D" in the SOLID patterns, which is another Nerdschool workshop.
+When following TDD, we always code in a certain pattern nicknamed "red-green-refactor".
 
-Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to take in an instance of `RocketLauncher` through its constructor. We have thereby _inverted control_ of the dependency to the _caller_ of `LaunchControl`.
+![tdd](http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png)
 
-```java
-class LaunchControl{
-    private RocketLauncher rocketLauncher;
-    public LaunchControl(RocketLauncher rocketLauncher) {
-        this.rocketLauncher = rocketLauncher;
-    }
-    public string executeLaunch() {
-        return this.rocketLauncher.launchRocket();
-    }
-}
-```
+### Red
 
-## Working with interfaces
+First, we create a test.
 
-We've still not solved the actual problem though. We cannot call `executeLaunch()` without using the actual `RocketLauncher` class.
+![tdd1](../images/tdd1.PNG)
 
-The next step is therefore to make `LaunchControl` dependent on a _contract_, and not an actual implementation. In Java, this is done through _interfaces_.
+Then, we start implementing the test based on how we plan the implementation to work. 
 
-```java
-interface RocketLauncher {
-    void launchRocket();
-}
-class RocketLauncherImpl implements RocketLauncher {
-    public void launchRocket() { /* Launches an actual rocket */ }
-}
-class LaunchControl{
-    private RocketLauncher rocketLauncher;
-    public LaunchControl(RocketLauncher rocketLauncher) {
-        this.rocketLauncher = rocketLauncher;
-    }
-    public string executeLaunch() {
-        return this.rocketLauncher.launchRocket();
-    }
-}
-```
+![tdd1](../images/tdd2.PNG)
 
-> Note that the _interface_ is now called `RocketLauncher` while the implementation _class_ is called `RocketLauncherImpl` as is a typical naming convention in Java.
+Why not leverage the power of IntelliJ to help us out creating things as we go? Use `ALT+ENTER` or click the light-bulb. 
 
-Finally, the `LaunchControl` class is free of any hard dependency. It now accepts a loose contract that we in production code can implement with an actual rocket launcher, but in our tests implement through an _Mock_.
+![tdd1](../images/tdd3.png)
 
-**Do the following:**
+Ensure it selects the correct package
 
-- Open the exercise 5 pom.xml as a project in IntelliJ
-- Look through the code
-- Apply inversion of control to the `RocketLauncher` and `PreFlightChecks` dependencies inside the `LaunchControl` class.
-- In `LaunchControlTest.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
+![tdd1](../images/tdd4.png)
 
-## Mocks and stubs
+Voila! The `Calculator.java` class and file has been created.
 
-A _mock_ is a dummy implementation of an interface or abstract class that we create and inject during testing so that we can test our code in isolation. We typically use a framework for creating mocks when we're writing tests.
-However, to get a good understanding of how this works in simple cases, we're not going to use a framework today but rather make our own dummy implementations for testing purposes.
+Let's continue in ``CalculatorTest.java``
 
-> A popular mocking framework for Java is [mockito](http://site.mockito.org/)
+I know I want an ``add`` function that takes two arguments and returns a value so I just start writing it so.
 
-A _stub_ is the exact same thing as a mock! Well, it's the same thing in code implementation. The difference between mocks and stubs lie in how we, as programmers, think about them when we read code.
+Again, there is no implementation, but I use ``ALT+ENTER`` to make IntelliJ create what I need.
 
-**We use _mocks_ to _assert a condition has been fulfilled during our test_.**
+![tdd1](../images/tdd5.png)
 
-**We use _stubs_ to _control the flow of the application during the test_.**
+I now have an ``Calculator`` class that looks like this without having to write anything myself.
+ 
+![tdd1](../images/tdd6.PNG)
 
-In other words, if we want to write a test that asserts that the `RocketLauncher.launchRocket()` method was called during execution of `LaunchControl.executeLaunch()`, we would create a _mock_.
-If we just want a method to return a certain value so that a certain condition is met in order to test what we want to test, we'd use a _stub_. In practice we would create the same object in code, but name and approach them differently.
+Back in ``CalculatorTest`` I add the last line, the assert for the result.
 
-> Different test frameworks has different implementations and ideas for mocks and stubs. Some frameworks call everything a mock, some differentiate between the two in significant ways.
+![tdd1](../images/tdd7.PNG)
 
-**Do the following:**
+I can finally run the test (``CTRL+SHIFT+F10`` when the cursor is on the test, or the icon in the gutter).
+ 
+As expected, it fails because there is no actual implementation yet.
 
-- If you haven't already, create the classes `RocketLauncherStub.java` and `PreFlightChecksStub.java` which implement the interfaces you might expect them to.
-- In `LaunchControlTest.java`, create the following tests:
-    - `executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket`
-    - `executeLaunch_whenHasFuelAndDoorIsNotClosed_doesNotLaunchRocket`
-    - `executeLaunch_whenHasFuelAndDoorIsClosed_launchesRocket`
-    - `executeLaunch_whenNoFuelAndDoorIsClosed_doesNotLaunchRocket`
-- Make all tests pass
+![tdd1](../images/tdd8.PNG)
 
-## Adapter pattern
+### Green
 
-Often, we want to test something we cannot easily decouple or take in as an interface. Any static method call on a class, for example. Typical problems are concerning disk, network, and date/time calls.
+Now that we have a failing test, we can continue on to the next step - making it pass.
 
-We don't want to actually delete files during our tests, and we don't want our tests to be depending on time or dates. In fact, we often want to control the current date and time in our tests. For this, we'll use the Adapter Pattern.
+The only question you need to answer at this point: _what is the smallest amount of code I need to implement to make
+this specific test pass?_
 
-![adapter pattern](https://static.dzone.com/dz1/dz-files/adapter_pattern_0.PNG)
+In the case of making the ``add()`` function work, it's quite simple
 
-The Adapter Pattern is one of the most well-known and basic design patterns.
+![tdd1](../images/tdd9.PNG)
 
-The short version is that we take whatever hard dependency we have, and define an `(..)Adapter` class and interface for it which defines the methods we need.
+Run the test again, and it goes green!
 
-**Example:**
+![tdd1](../images/tdd10.PNG)
 
-```java
-public Boolean acceptAgreement() {
-    System.out.println("Do you accept the agreement?");
-    Scanner reader = new Scanner(System.in);
-    String answer = reader.nextLine();
-    return answer.equals("yes");
-}
-```
+### Refactor
 
-The above example has a hard dependency on reading input from the console. We couldn't test this code without actually prompting for user input.
+Now that we have finished our test, we can refactor our code if necessary. Refactoring code just means to change
+it's implementation details without changing it's behaviour. So we can change it, but our test should from now on always pass.
 
-**Adapter pattern solution:**
+For the simple example we're using in these examples there's not much refactoring to do.
 
-```java
-public interface ScannerAdapter {
-    String nextLine(); // Note: signature and name of method matching exactly the original Scanner class' method signature.
-}
+### Repeat
 
-public class ScannerAdapterImpl {
-    public String nextLine() {
-        // The default implementation of the ScannerAdapter interface which will run during normal execution. This uses the Scanner.nextLine as before.
-        Scanner reader = new Scanner(System.in);
-        return reader.nextLine();
-    }
-}
+Now that ``add()`` is implemented, we can add more features to our calculator in the same way: 
+Write the test, implement the feature, make the test pass, refactor.
 
-public class Agreement {
-    private ScannerAdapter scannerAdapter;
-    public Agreement(ScannerAdapter scannerAdapter) { // Only depends on the adapter contract which we can control in our test using mocks/stubs
-        this.scannerAdapter = scannerAdapter;
-    }
-    public Boolean acceptAgreement() {
-        System.out.println("Do you accept the agreement?");
-        String answer = this.scannerAdapter.nextLine();
-        return answer.equals("yes");
-    }
-}
-```
+## Tasks
+
+Exercise 6 contains a skeleton for a simple ``MonthParser`` class. It has one function: `parseMonth(int numberOfMonth)`
+which given a number returns a ``Month`` instance containing the month's name ("January", "February", etc) and the number of days
+it contains.
 
 **Do the following:**
 
-- Refactor `PreFlightChecks` to use the adapter pattern
-- Create `PreFligthChecksTests.java` in the test dir
-- Create test cases for each method that verifies the correct result is returned given "user" (fake) input. You control the user input as stubs in your tests.
+- Open exercise6 pom.xml file as a project in IntelliJ
+- Using TDD **only**, implement the ``parseMonth`` method.
+- You should go through the red-green-refactor cycle 12 times in this exercise, one for each month.
+- Copy & pasting code, or implementing more than one month at a time is strictly forbidden.
+- There should be at least one test per possible month
+- There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).
