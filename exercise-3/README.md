@@ -3,6 +3,7 @@
 This exercise will cover how to write good tests by following some good practices.
 
 You will learn how to:
+
 1. Create well named tests
 2. Keep things DRY
 3. Test behavior, not implementation
