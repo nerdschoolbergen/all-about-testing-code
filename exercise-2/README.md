@@ -14,7 +14,15 @@ Sometimes an exception is the correct result of a test. For example, if we have 
 JUnit provides some syntax to check for exceptions in a test:
 
 ```Java
-@Test(expected = ExceptionName.class)```
+@Test(expected = ExceptionName.class)
+```
 
 - Make code under test throw an error when test #1 runs
-- Run test, see
+- Run test, see that test fails with unhandled exception
+- Insert syntax above to make test pass
+
+# 2.2. Failures and errors
+
+Blabla.
+
+### [Go to exercise 3 ==>](../exercise-3/README.md)
