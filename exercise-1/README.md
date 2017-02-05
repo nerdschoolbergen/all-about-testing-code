@@ -38,3 +38,5 @@ This will create a IntelliJ project from the Maven `pom.xml`.
 
 - Identify the _Given_, _When_, _What_ sections of the test you just wrote by inserting comments and line breaks to make it clearer.
 - Give the test a better name
+
+### [Go to exercise 2 ==>](../exercise-2/README.md)
