@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>nerdschool.testing</groupId>
-    <artifactId>intro</artifactId>
+    <artifactId>exercise1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <dependencies>
