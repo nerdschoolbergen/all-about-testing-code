@@ -36,6 +36,19 @@ This will create a IntelliJ project from the Maven `pom.xml`.
 
 ## 3. Test structure
 
+It is good practice to use the following structure when writing tests:
+
+- _Given_
+  - What should the world look like when the test happens?
+  - The preconditions for the test
+- _When_
+  - What is being tested?
+  - The behavior
+- _Then_
+  - What are the changes that happened?
+  - The post-condition
+
+
 - Identify the _Given_, _When_, _What_ sections of the test you just wrote by inserting comments and line breaks to make it clearer.
 - Give the test a better name
 
