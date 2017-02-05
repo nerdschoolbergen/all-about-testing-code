@@ -19,7 +19,8 @@ Using good naming conventions when naming tests creates a form of executable doc
 @Test
 public void test1() {
   ...
-}```
+}
+```
 - Completely unreadable.
 
 
@@ -27,14 +28,16 @@ public void test1() {
 @Test
 public void oranges() {
   ...
-}```
+}
+```
 - Something to do with oranges?
 
 ```java
 @Test
 public void makeJuice() {
   ...
-}```
+}
+```
 - Probably tests the `makeJuice`-method?
 - Given, when, then...?
 
