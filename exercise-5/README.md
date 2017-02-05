@@ -4,16 +4,16 @@ This exercise will take you through how to deal with dependencies when working w
 
 ## Identifying dependencies
 
-All non-trivial applications has dependencies between classes, between modules, and between layers. In this code, the class `spacecenter.LaunchControl` has a dependency on `spacecenter.RocketLauncher` which does exactly what you think it does:
+All non-trivial applications has dependencies between classes, between modules, and between layers. In this code, the class `LaunchControl` has a dependency on `RocketLauncher` which does exactly what you think it does:
 
 ```java
-class spacecenter.RocketLauncher {
+class RocketLauncher {
     public void launchRocket() { /* Launches an actual rocket */ }
 }
-class spacecenter.LaunchControl{
-    private spacecenter.RocketLauncher rocketLauncher;
-    public spacecenter.LaunchControl() {
-        this.rocketLauncher = new spacecenter.RocketLauncher();
+class LaunchControl{
+    private RocketLauncher rocketLauncher;
+    public LaunchControl() {
+        this.rocketLauncher = new RocketLauncher();
     }
     public string executeLaunch() {
         return this.rocketLauncher.launchRocket();
@@ -21,18 +21,18 @@ class spacecenter.LaunchControl{
 }
 ```
 
-The problem with the above example is that the `spacecenter.RocketLauncher` dependency is impossible to work around. We cannot possibly call `spacecenter.LaunchControl.executeLaunch()` without actually launching the rocket. In other words, this is untestable.
+The problem with the above example is that the `RocketLauncher` dependency is impossible to work around. We cannot possibly call `LaunchControl.executeLaunch()` without actually launching the rocket. In other words, this is untestable.
 
 ## Inversion of Control
 
 The first step to solving this issue, is to apply something called inversion of control, based on what is known as the Dependency Inversion Principle, the "D" in the SOLID patterns, which is another Nerdschool workshop.
 
-Ignoring the fancy words for now, what it means is that instead of having the `spacecenter.LaunchControl` class being responsible for "newing up" the `spacecenter.RocketLauncher` class, we change `spacecenter.LaunchControl` to take in an instance of `spacecenter.RocketLauncher` through its constructor. We have thereby _inverted_ control of the dependency to the caller of `spacecenter.LaunchControl`.
+Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to take in an instance of `RocketLauncher` through its constructor. We have thereby _inverted_ control of the dependency to the caller of `LaunchControl`.
 
 ```java
-class spacecenter.LaunchControl{
-    private spacecenter.RocketLauncher rocketLauncher;
-    public spacecenter.LaunchControl(spacecenter.RocketLauncher rocketLauncher) {
+class LaunchControl{
+    private RocketLauncher rocketLauncher;
+    public LaunchControl(RocketLauncher rocketLauncher) {
         this.rocketLauncher = rocketLauncher;
     }
     public string executeLaunch() {
@@ -43,20 +43,20 @@ class spacecenter.LaunchControl{
 
 ## Working with interfaces
 
-We've still not solved the actual problem though. We cannot call `executeLaunch()` without using the actual `spacecenter.RocketLauncher` class.
+We've still not solved the actual problem though. We cannot call `executeLaunch()` without using the actual `RocketLauncher` class.
 
-The next step is therefore to make `spacecenter.LaunchControl` dependent on a _contract_, and not an actual implementation. In Java, this is done through _interfaces_.
+The next step is therefore to make `LaunchControl` dependent on a _contract_, and not an actual implementation. In Java, this is done through _interfaces_.
 
 ```java
-interface spacecenter.RocketLauncher {
+interface RocketLauncher {
     void launchRocket();
 }
-class RocketLauncherImpl implements spacecenter.RocketLauncher {
+class RocketLauncherImpl implements RocketLauncher {
     public void launchRocket() { /* Launches an actual rocket */ }
 }
-class spacecenter.LaunchControl{
-    private spacecenter.RocketLauncher rocketLauncher;
-    public spacecenter.LaunchControl(spacecenter.RocketLauncher rocketLauncher) {
+class LaunchControl{
+    private RocketLauncher rocketLauncher;
+    public LaunchControl(RocketLauncher rocketLauncher) {
         this.rocketLauncher = rocketLauncher;
     }
     public string executeLaunch() {
@@ -65,16 +65,16 @@ class spacecenter.LaunchControl{
 }
 ```
 
-> Note that the _interface_ is now called `spacecenter.RocketLauncher` while the implementation _class_ is called `RocketLauncherImpl` as is a typical naming convention in Java.
+> Note that the _interface_ is now called `RocketLauncher` while the implementation _class_ is called `RocketLauncherImpl` as is a typical naming convention in Java.
 
-Finally, the `spacecenter.LaunchControl` class is free of any hard dependency. It now accepts a loose contract that we in production code can implement with an actual rocket launcher, but in our tests implement through an _Mock_.
+Finally, the `LaunchControl` class is free of any hard dependency. It now accepts a loose contract that we in production code can implement with an actual rocket launcher, but in our tests implement through an _Mock_.
 
 **Do the following:**
 
 - Open the exercise 5 pom.xml as a project in IntelliJ
 - Look through the code
-- Apply inversion of control to the `spacecenter.RocketLauncher` and `spacecenter.PreFlightChecks` dependencies inside the `spacecenter.LaunchControl` class.
-- In `LaunchControlTests.java`, create a `@Before` function where you can create a new instance of `spacecenter.LaunchControl.java`. Ensure that you can create an instance of `spacecenter.LaunchControl` with dummy implementations and not the real `spacecenter.RocketLauncher` and `spacecenter.PreFlightChecks` classes.
+- Apply inversion of control to the `RocketLauncher` and `PreFlightChecks` dependencies inside the `LaunchControl` class.
+- In `LaunchControlTests.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
 
 ## Mocks and stubs
 
@@ -86,7 +86,7 @@ A stub is the exact same thing as a mock! Well, in code it's the same thing. The
 
 **We use stubs to _control the flow of the application during the test_.**
 
-In other words, if we want to write a test that asserts that the `spacecenter.RocketLauncher.launchRocket()` method was called during execution of `spacecenter.LaunchControl.executeLaunch()`, we would create a _mock_. If we just want a method to return a certain value so that a certain condition is met in order to test what we want to test, we'd use a _stub_.
+In other words, if we want to write a test that asserts that the `RocketLauncher.launchRocket()` method was called during execution of `LaunchControl.executeLaunch()`, we would create a _mock_. If we just want a method to return a certain value so that a certain condition is met in order to test what we want to test, we'd use a _stub_.
 
 **Do the following:**
 
@@ -153,6 +153,6 @@ public class Agreement {
 
 **Do the following:**
 
-- Refactor `spacecenter.PreFlightChecks` to use the adapter pattern
+- Refactor `PreFlightChecks` to use the adapter pattern
 - Create `PreFligthChecksTests.java` in the test dir
 - Create test cases for each method that verifies the correct result is returned given "user" (fake) input.
