@@ -1,3 +1,6 @@
+/**
+ * Defines different kinds of smoothies and the ingredients required
+ */
 public enum SmoothieKind {
     OrangeAndAppleSmoothie(2, 2, 0),
     BananaAndAppleSmoothe(0, 2, 1),

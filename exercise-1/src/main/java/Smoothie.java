@@ -1,4 +1,7 @@
-public class Smoothie {
+/**
+ * Represents a smoothie that has a kind and is made of a mix of ingredients
+ */
+public final class Smoothie {
     private final SmoothieKind kind;
     private final int apples;
     private final int oranges;
@@ -33,6 +36,6 @@ public class Smoothie {
                 "kind=" + kind +
                 ", apples= " + apples +
                 ", oranges= " + oranges +
-                ", bananas= " + bananas
+                ", bananas= " + bananas;
     }
 }
