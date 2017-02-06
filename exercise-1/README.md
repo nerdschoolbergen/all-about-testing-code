@@ -82,9 +82,48 @@ When you added the test you may have noticed the green arrow at the left hand si
 [Test Runner documentation](https://www.jetbrains.com/help/idea/2016.3/test-runner-tab.html)
 
 ### Creating more tests
-- Create a second test using `assertTrue` that fails
-- Make changes to the code under test to make test pass
-- Run test, see it pass
+
+We are now going to create a test which tests if the `SmoothieBar` class can blend an orange and apple smoothie.
+
+- Remove the `helloNerdSchool` test and add the following:
+
+```java
+@Test
+public void canBlendOrangeAndAppleSmoothie() {
+    SmoothieBar smoothieBar = new SmoothieBar();
+    smoothieBar.restockApples(2);
+    smoothieBar.restockOranges(2);
+    Smoothie smoothie = smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
+    assertTrue(smoothie.getKind() == SmoothieKind.OrangeAndAppleSmoothie);
+}
+```
+
+- Run the test, and see that it passes (marked green in the Test Runner).
+- Notice the JUnit `assertTrue` method call. This method tests that the given boolean expression is true, if not the test fails
+- Try to make the test fail by making a change to the assertion and rerun the test
+- Observe what happens in the Test Runner
+
+The `assertTrue` assertion is one of many built in to the JUnit framework. [More about assertions here](https://github.com/junit-team/junit4/wiki/Assertions
+
+We also want to test that the `SmoothieBar` class consumes oranges and apples from its stock when a smoothie is made.
+
+- Add the following test:
+
+```java
+@Test
+public void blendingOrangeAndAppleSmoothieConsumesOrangesAndApples() {
+    SmoothieBar smoothieBar = new SmoothieBar();
+    smoothieBar.restockApples(2);
+    smoothieBar.restockOranges(2);
+    Smoothie smoothie = smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
+    assertTrue(smoothieBar.getApplesInStock() == 0);
+    assertTrue(smoothieBar.getOrangesInStock() == 0);
+}
+```
+
+- Run the test and see that it passes.
+- You can also run all tests at once by clicking the green arrow beside the test class name.
+- Optional: Think of some more test cases and create some tests.
 
 ## 1.3. Test structure
 
