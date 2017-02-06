@@ -54,23 +54,32 @@ We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 - In the "Create Test" dialog, fill out the following:
  - Testing library: "JUnit4"
  - Class name: "SmoothieBarTest"
+ - Generate test methods for: `blend` (the first method)
 - Click **OK**
 
 ![Create test dialog](../images/intellij-create-test-dialog.png)
 
-- An empty test class called `SmoothieBarTest` should now have been created in the `src\test` folder
+- A test class called `SmoothieBarTest` should now have been created in the `src\test` folder
 
-We now have an empty test class with no test methods. To add a test method, create a method inside the `SmoothieBarTest` class with the following syntax:
+We now have an test class with a empty test method. Remove the empty `blend` test method and create a `helloNerdSchool` test method with the following syntax:
 
 ```java
 @Test
-public void canBlendOrangeAndAppleSmoothie() {
-  System.out.println("Hello Nerdschool!");
+public void helloNerdSchool() {
+  System.out.println("Hello NerdSchool!");
 }
 ```
 
-### Running tests
-- Run it (show how using screenshots?), see it pass
+Notice the `@Test` annotation that marks this method as a JUnit test method.
+
+### Running tests using the Test Runner tab
+
+When you added the test you may have noticed the green arrow at the left hand side of the Editor window.
+
+- Click the green arrow and run the `helloNerdSchool` test.
+- The Test Runner tab should show up at the bottom of the screen, showing that the test has passed and printed out "Hello Nerdschool in the output pane.
+
+[Test Runner documentation](https://www.jetbrains.com/help/idea/2016.3/test-runner-tab.html)
 
 ### Creating more tests
 - Create a second test using `assertTrue` that fails
