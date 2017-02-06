@@ -79,6 +79,9 @@ When you added the test you may have noticed the green arrow at the left hand si
 - Click the green arrow and run the `helloNerdSchool` test.
 - The Test Runner tab should show up at the bottom of the screen, showing that the test has passed and printed out "Hello Nerdschool in the output pane.
 
+![](../images/intellij-test-runner.png)
+
+
 [Test Runner documentation](https://www.jetbrains.com/help/idea/2016.3/test-runner-tab.html)
 
 ### Creating more tests
