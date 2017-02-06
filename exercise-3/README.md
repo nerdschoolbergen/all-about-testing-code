@@ -15,6 +15,8 @@ Using good naming conventions when naming tests creates a form of executable doc
 
 ### Naming anti-patterns
 
+Here are some examples of bad naming:
+
 ```java
 @Test
 public void test1() {
@@ -39,8 +41,15 @@ public void makeJuice() {
 }
 ```
 - Probably tests the `makeJuice`-method?
-- Given, when, then...?
 
+### Examples of good naming
+
+**TODO: EXAMPLES HERE**
+
+Some naming rules
+- Use domain terminology
+- Use natural language
+- Be descriptive
 
 ## 3.2. Don't repeat yourself
 
