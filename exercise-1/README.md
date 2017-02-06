@@ -56,7 +56,7 @@ We are going to focus on testing the `SmoothieBar`-class in the next exercises.
  - Class name: "SmoothieBarTest"
 - Click **OK**
 
-![Create test dialog](../images/intellij-create-dialog.png)
+![Create test dialog](../images/intellij-create-test-dialog.png)
 
 - An empty test class called `SmoothieBarTest` should now have been created in the `src\test` folder
 
