@@ -42,14 +42,22 @@ public void makeJuice() {
 ```
 - Probably tests the `makeJuice`-method?
 
-### Examples of good naming
+### Naming rules
 
-**TODO: EXAMPLES HERE**
-
-Some naming rules
 - Use domain terminology
 - Use natural language
 - Be descriptive
+
+Take a look at some of tests we added in the previous exercises:
+
+- `canBlendOrangeAndAppleSmoothie`
+- `blendingOrangeAndAppleSmoothieConsumesOrangesAndApples`
+
+As you can se the names use the domain terms `blend`, `OrangeAndAppleSmoothie`. They´re also pretty descriptive and uses natural language to convey meaning.
+
+- See if you can rename some of the other tests you made
+
+### Alternate naming convention
 
 ## 3.2. Don't repeat yourself
 
