@@ -103,7 +103,7 @@ public void canBlendOrangeAndAppleSmoothie() {
 - Try to make the test fail by making a change to the assertion and rerun the test
 - Observe what happens in the Test Runner
 
-The `assertTrue` assertion is one of many built in to the JUnit framework. [More about assertions here](https://github.com/junit-team/junit4/wiki/Assertions
+The `assertTrue` assertion is one of many built in to the JUnit framework. [More about assertions here](https://github.com/junit-team/junit4/wiki/Assertions)
 
 We also want to test that the `SmoothieBar` class consumes oranges and apples from its stock when a smoothie is made.
 
