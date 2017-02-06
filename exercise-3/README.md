@@ -110,12 +110,12 @@ Syntax:
 
 ```java
 assertEquals(“Wrong quantity of stuff!”, 1, stuffQuantity);
-Wrong quantity of stuff!
 ```
 
 Test failure output:
 
 ```
+Wrong quantity of stuff!
 Expected :1
 Actual :0
 ```
