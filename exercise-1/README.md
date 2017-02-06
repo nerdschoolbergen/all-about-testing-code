@@ -41,10 +41,33 @@ The code has the following structure:
   - `getApplesInStock`, `getOrangesInStock` and `getBananasInStock` which gets the current stock of ingredients
   - `restockApples`, `restockOranges` and  `restockBananas` which lets you add ingredients to the stock
 
-### Creating a test class and a test
+We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 
-- Create a test class
-- Create a test method using `assertTrue`
+### Creating a `SmoothieBar` test class and a test
+
+- To create a test class for the `SmoothieBar` class first use the Project window on the left side of the screen to open the `SmoothieBar` class in the Editor window. (If it's not visible it may be collapsed. If so, click the tab called "Project" on the left side of the screen.)
+- To make things easy we are going to have IntelliJ create the test class for us by placing the cursor within the line containing the class declaration (`public class SmoothieBar...`) and press **`Alt+Enter`** (Windows/Linux users) or **`⌥⏎`** (Mac users)
+- Choose **Create Test** from the suggestion list
+
+![Suggestion list](https://www.jetbrains.com/help/img/idea/2016.3/createTest1.png)
+
+- In the "Create Test" dialog, fill out the following:
+ - Testing library: "JUnit4"
+ - Class name: "SmoothieBarTest"
+- Click **OK**
+
+![Create test dialog](https://www.jetbrains.com/help/img/idea/2016.3/createTest2.png)
+
+- An empty test class called `SmoothieBarTest` should now have been created in the `src\test` folder
+
+We now have an empty test class with no test methods. To add a test method, create a method inside the `SmoothieBarTest` class with the following syntax:
+
+```java
+@Test
+public void canBlendOrangeAndAppleSmoothie() {
+  System.out.println("Hello Nerdschool!");
+}
+```
 
 ### Running tests
 - Run it (show how using screenshots?), see it pass
