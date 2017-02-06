@@ -49,14 +49,14 @@ We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 - To make things easy we are going to have IntelliJ create the test class for us by placing the cursor within the line containing the class declaration (`public class SmoothieBar...`) and press **`Alt+Enter`** (Windows/Linux users) or **`⌥⏎`** (Mac users)
 - Choose **Create Test** from the suggestion list
 
-![Suggestion list](https://www.jetbrains.com/help/img/idea/2016.3/createTest1.png)
+![Suggestion list](../images/intellij-create-test.png)
 
 - In the "Create Test" dialog, fill out the following:
  - Testing library: "JUnit4"
  - Class name: "SmoothieBarTest"
 - Click **OK**
 
-![Create test dialog](https://www.jetbrains.com/help/img/idea/2016.3/createTest2.png)
+![Create test dialog](../images/intellij-create-test-dialog.png)
 
 - An empty test class called `SmoothieBarTest` should now have been created in the `src\test` folder
 
