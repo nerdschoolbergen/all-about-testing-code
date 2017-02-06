@@ -23,10 +23,9 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 2](exercise-2/)
 - [Exercise 3](exercise-3/)
 - [Exercise 4](exercise-4/)
-
-### Bonus exercises
-
-- [Bonus part 1](bonus-1/)
-- [Bonus part 2](bonus-2/)
+- [Exercise 5](exercise-5/)
 
 ## Helpful resources
+- [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
+- [IntelliJ for Eclipse users](https://www.jetbrains.com/help/idea/2016.3/eclipse.html)
+- [IntelliJ testing](https://www.jetbrains.com/help/idea/2016.3/testing.html)
