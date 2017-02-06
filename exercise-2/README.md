@@ -17,10 +17,10 @@ JUnit provides some syntax to check for exceptions in a test:
 @Test(expected = ExceptionName.class)
 ```
 
-**TODO - More detailed instructions with source code examples**
-- Make code under test throw an `IllegalStateException` when test #1 runs
+- Take a look at the `SmoothieBar` class. The `blend` method will throw a `IllegalStateException` if the stock of ingredients required for the smoothie to be blended is to low.
+- Create a test that tests this logic (hint: It has something to do with restocking ingredient)
 - Run test, see that test fails with the `IllegalStateException` as cause
-- Use `expected`syntax above to make green again
+- Use `expected` syntax above to make green again
 
 # 2.2. Failures and errors
 
@@ -32,12 +32,7 @@ An important distinction in software testing is the difference between failures 
 
 Failures means the code under test is broken. Errors might mean the test is broken or the code under test is broken.
 
-
-
-**TODO - Make more detailed instructions with source code examples**
-- In exercise 2.1 we expected the code to throw an exception be cause we told it to do so explicitly
-- Run the test again and see that the test was marked with the error icon in the Test Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testError.png)
-- Change `assertEquals` `getApplesInStock()` assertion to expect `1`
-- See that the test was marked with the failed icon in the Test Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testFailed.png)
+- Make the test you just made not pass again and see that the test was marked with the error icon in the Test Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testError.png)
+- Modify the `canBlendOrangeAndAppleSmoothie` test so that it is marked as failed the Test Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testFailed.png)
 
 ### [Go to exercise 3 ==>](../exercise-3/README.md)
