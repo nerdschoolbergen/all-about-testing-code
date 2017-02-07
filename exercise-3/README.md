@@ -6,8 +6,7 @@ You will learn how to:
 
 1. Create well named tests
 2. Keep things DRY
-3. Test behavior, not implementation
-4. Make tests easy to diagnose on failure
+3. Make tests easy to diagnose on failure
 
 ## 3.1. Good naming conventions
 
