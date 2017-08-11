@@ -1,3 +1,4 @@
+package  smoothiemaker;
 /**
  * Defines different kinds of smoothies and the ingredients required
  */

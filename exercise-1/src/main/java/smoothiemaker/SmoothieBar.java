@@ -1,3 +1,4 @@
+package  smoothiemaker;
 /**
  * A smoothie bar that can blend smoothies and keeps track of the stock of ingredients.
  */

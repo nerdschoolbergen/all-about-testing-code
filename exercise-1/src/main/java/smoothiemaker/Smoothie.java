@@ -1,3 +1,4 @@
+package  smoothiemaker;
 /**
  * Represents a smoothie that has a kind and is made of a mix of ingredients
  */
