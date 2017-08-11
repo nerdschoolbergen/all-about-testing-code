@@ -88,13 +88,13 @@ Write the test, implement the feature, make the test pass, refactor.
 
 ## Tasks
 
-Exercise 6 contains a skeleton for a simple ``MonthParser`` class. It has one function: `parseMonth(int numberOfMonth)`
+Exercise 4 contains a skeleton for a simple ``MonthParser`` class. It has one function: `parseMonth(int numberOfMonth)`
 which given a number, returns a ``Month`` instance containing the month's name ("January", "February", etc) and the number of days
 it contains.
 
 **Do the following:**
 
-- Open exercise6 pom.xml file as a project in IntelliJ
+- Open exercise4 pom.xml file as a project in IntelliJ
 - Using TDD **only**, implement the ``parseMonth`` method for all 12 months.
 - You should go through the red-green-refactor cycle 12 times in this exercise, one for each month.
 - Copy & pasting code, or implementing more than one month at a time is strictly forbidden.
