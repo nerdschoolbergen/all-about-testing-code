@@ -19,7 +19,7 @@ This lesson is oriented around teaching you how write automated tests in Java. I
 ## Exercises
 This repository contains a set of exercises organized in folders. Each folder contains a `README.md` describing the exercise.
 
-- [Exercise 1](exercise-1/)
+- [Exercise 1](exercise-1/) (start here)
 - [Exercise 2](exercise-2/)
 - [Exercise 3](exercise-3/)
 - [Exercise 4](exercise-4/)
