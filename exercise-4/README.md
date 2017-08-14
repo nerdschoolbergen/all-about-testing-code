@@ -11,7 +11,9 @@ But wait! This means our code won't even compile, silly! Why yes. Yes it does.
 
 So how does this makes sense?
 
-## How to do TDD
+## :book: How to do TDD
+
+> :exclamation: This section contains a walkthrough of how to approach TDD. You should just read along, making sure you understand the workflow. You don't have to implement the calculator example yourself - it's only used in the below screenshots.
 
 When following TDD, we always code in a certain pattern nicknamed "red-green-refactor".
 
@@ -23,11 +25,11 @@ First, we create a test.
 
 ![tdd1](../images/tdd1.PNG)
 
-Then, we start implementing the test based on how we plan the implementation to work. 
+Then, we start implementing the test based on how we plan the implementation to work.
 
 ![tdd1](../images/tdd2.PNG)
 
-Why not leverage the power of IntelliJ to help us out creating things as we go? Use `ALT+ENTER` or click the light-bulb. 
+Why not leverage the power of IntelliJ to help us out creating things as we go? Use `ALT+ENTER` or click the light-bulb.
 
 ![tdd1](../images/tdd3.png)
 
@@ -46,7 +48,7 @@ Again, there is no implementation, but I use ``ALT+ENTER`` to make IntelliJ crea
 ![tdd1](../images/tdd5.png)
 
 I now have an ``Calculator`` class that looks like this without having to write anything myself.
- 
+
 ![tdd1](../images/tdd6.PNG)
 
 Back in ``CalculatorTest`` I add the last line, then assert for the result.
@@ -54,7 +56,7 @@ Back in ``CalculatorTest`` I add the last line, then assert for the result.
 ![tdd1](../images/tdd7.PNG)
 
 I can finally run the test (``CTRL+SHIFT+F10`` when the cursor is on the test, or the icon in the gutter).
- 
+
 As expected, it fails because there is no actual implementation yet.
 
 ![tdd1](../images/tdd8.PNG)
@@ -83,7 +85,7 @@ For the simple example we're using in these examples there's not much refactorin
 
 ### Repeat
 
-Now that ``add()`` is implemented, we can add more features to our calculator in the same way: 
+Now that ``add()`` is implemented, we can add more features to our calculator in the same way:
 Write the test, implement the feature, make the test pass, refactor.
 
 ## Tasks
@@ -92,11 +94,14 @@ Exercise 4 contains a skeleton for a simple ``MonthParser`` class. It has one fu
 which given a number, returns a ``Month`` instance containing the month's name ("January", "February", etc) and the number of days
 it contains.
 
-**Do the following:**
+_Please read all the text below before starting_.
 
-- Open exercise4 pom.xml file as a project in IntelliJ
-- Using TDD **only**, implement the ``parseMonth`` method for all 12 months.
-- You should go through the red-green-refactor cycle 12 times in this exercise, one for each month.
-- Copy & pasting code, or implementing more than one month at a time is strictly forbidden.
-- There should be at least one test per month
-- There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).
+:pencil2: Open exercise4 pom.xml file as a project in IntelliJ (same procedure as exercise 1).  
+:pencil2: Using TDD **only**, implement the ``parseMonth`` method for all 12 months. You can find a list of days in each month [here](http://www.howmanydaysin.com/).  
+:pencil2: You should go through the red-green-refactor cycle _12 times_ in this exercise, one for each month.  
+:poop: Copy & pasting code, or implementing more than one month at a time is strictly forbidden.  
+:exclamation: There should be at least one test per month.  
+:exclamation: There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).  
+:exclamation: The point of this exercise is not to come up with the most clever date time/month parsing algorithm ever created. Simply assert that you expect the month `1` to return a month named `January` with `31` days, then implement the least amount of code to make that happen and repeat for the next month.
+
+### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
