@@ -2,13 +2,13 @@
 
 This exercise will take you through how to deal with dependencies when working with unit tests.
 
-## Identifying dependencies
+## :book: Identifying dependencies
 
 All non-trivial applications has dependencies between classes, between modules, and between layers. In this code, the class `LaunchControl` has a dependency on `RocketLauncher` which does exactly what you think it does:
 
 ```java
 class RocketLauncher {
-    public void launchRocket() { /* Launches an actual rocket */ }
+  public void launchRocket() { /* Launches an actual rocket into space! */ }
 }
 class LaunchControl{
     public string executeLaunch() {
@@ -19,11 +19,11 @@ class LaunchControl{
 
 The problem with the above example is that the `RocketLauncher` dependency is impossible to work around. We cannot possibly call `LaunchControl.executeLaunch()` without actually launching the rocket. In other words, this is untestable.
 
-## Inversion of Control
+## :book: Inversion of Control
 
-The first step to solving this issue, is to apply something called inversion of control, based on what is known as the Dependency Inversion Principle, the "D" in the SOLID patterns, which is another Nerdschool workshop.
+The first step to solving this issue, is to apply something called inversion of control, based on what is known as the Dependency Inversion Principle, the "D" in the [SOLID patterns](https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)), which is another Nerdschool workshop.
 
-Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to take in an instance of `RocketLauncher` through its constructor. We have thereby _inverted control_ of the dependency to the _caller_ of `LaunchControl`.
+Ignoring the fancy words for now, what it means is that instead of having the `LaunchControl` class being responsible for "newing up" the `RocketLauncher` class, we change `LaunchControl` to _take in an instance of `RocketLauncher` through its constructor_. We have thereby _inverted control_ of the dependency to the _caller_ of `LaunchControl`.
 
 ```java
 class LaunchControl{
@@ -37,11 +37,11 @@ class LaunchControl{
 }
 ```
 
-## Working with interfaces
+## :book: Working with interfaces
 
 We've still not solved the actual problem though. We cannot call `executeLaunch()` without using the actual `RocketLauncher` class.
 
-The next step is therefore to make `LaunchControl` dependent on a _contract_, and not an actual implementation. In Java, this is done through _interfaces_.
+The next step is therefore to make `LaunchControl` dependent on a _contract_, and not an actual implementation. In Java - and other object-oriented languages, this is done through _interfaces_.
 
 ```java
 interface RocketLauncher {
@@ -61,16 +61,16 @@ class LaunchControl{
 }
 ```
 
-> Note that the _interface_ is now called `RocketLauncher` while the implementation _class_ is called `RocketLauncherImpl` as is a typical naming convention in Java.
+> :bulb: Note that the _interface_ is now called `RocketLauncher` while the implementation _class_ is called `RocketLauncherImpl` as is a typical naming convention in Java.
 
 Finally, the `LaunchControl` class is free of any hard dependency. It now accepts a loose contract that we in production code can implement with an actual rocket launcher, but in our tests implement through an _Mock_.
 
 **Do the following:**
 
-- Open the exercise 5 pom.xml as a project in IntelliJ
-- Look through the code
-- Apply inversion of control to the `RocketLauncher` and `PreFlightChecks` dependencies inside the `LaunchControl` class.
-- In `LaunchControlTest.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
+:pencil2: Open the exercise 5 pom.xml as a project in IntelliJ (same procedure as exercise 1).  
+:pencil2: Look through the code.  
+:pencil2: Apply inversion of control to the `RocketLauncher` and `PreFlightChecks` dependencies inside the `LaunchControl` class.  
+:pencil2: In `LaunchControlTest.java`, create a `@Before` function where you can create a new instance of `LaunchControl.java`. Ensure that you can create an instance of `LaunchControl` with dummy implementations and not the real `RocketLauncher` and `PreFlightChecks` classes.
 
 ## Mocks and stubs
 
