@@ -29,3 +29,4 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
 - [IntelliJ for Eclipse users](https://www.jetbrains.com/help/idea/2016.3/eclipse.html)
 - [IntelliJ testing](https://www.jetbrains.com/help/idea/2016.3/testing.html)
+- [Error:java: javacTask: source release 8 requires target release 1.8](https://stackoverflow.com/questions/29888592/errorjava-javactask-source-release-8-requires-target-release-1-8)
