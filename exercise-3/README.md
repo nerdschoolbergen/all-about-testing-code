@@ -66,24 +66,24 @@ Author Roy Osherove has coined another naming convention popular in C#/.NET prog
 
 You may have noticed that the arrange-part of the tests have some duplicated code. Often the arrange-part of tests for particular class/method have overlapping code. To make the arrange code more DRY, we can utilize the `@Before` annotation provided by JUnit.
 
-- Refactor the common arrange code into a method
-- Add the `@Before` syntax to the method
-- Run the tests to make sure they still pass
-- Observe that the `@Before` annotated method runs before each test
+:pencil2: Refactor the common arrange code into a method.  
+:pencil2: Add the `@Before` syntax to the method.  
+:pencil2: Run the tests to make sure they still pass.  
+:book: Observe that the `@Before` annotated method runs before each test (the tests still passes, as before).  
 
 ### Magic numbers
 
-The arrange code we wrote contains some "magic numbers" such as the number of apples and oranges restocked before making a smoothie (`smoothieBar.restockApples(2)`).
+The arrange code we wrote contains some "magic numbers" such as the number of apples and oranges restocked before making a smoothie (`smoothieBar.restockApples(2)`). We want to avoid stray numbers and such in our test code because it's uncertain why that number was chosen. Consider how the next person introduced to your codebase would look at it. "Is it critical to always restock 2 apples?". "Why was the number 2 used? I'll better use 2 also, just in case". You should always avoid causes for uncertainty in your code.
 
-- Refactor the code to use properly named constants for all magic numbers.
+:pencil2: Refactor the code to use properly named constants for all magic numbers.  
 
 ## 3.3. Making tests easy to diagnose on failure
 
 When diagnosing why tests fail it is very helpful to have tests output detailed information about what caused the test to fail, so that you can avoid having to debug the test using the debugger.
 
-- Update the `blendingOrangeAndAppleSmoothieConsumesOrangesAndApples` test to restock the wrong amount of apples.
-- Rerun the test
-- Notice that the test outputs an `AssertionError`, but it's not very helpful.
+:pencil2: Update the `blendingOrangeAndAppleSmoothieConsumesOrangesAndApples` test to restock the wrong amount of apples.  
+:pencil2: Rerun the test.  
+:book: Notice that the test outputs an `AssertionError`, but it's not very helpful.  
 
 ### Using the `assertEquals` assertion
 
@@ -91,7 +91,7 @@ To make tests easier to diagnose, we can use the `assertEquals` assertion. `asse
 
 Syntax:
 ```java
-assertEquals(1, someNumber)
+assertEquals(1, someNumber);
 ```
 
 Test failure output:
@@ -119,7 +119,7 @@ Expected :1
 Actual :0
 ```
 
-- Replace the `assertTrue` assertions in the test with `assertEquals` assertions
-- The test output should now be easier to diagnose
+:pencil2: Replace the `assertTrue` assertions in the test with `assertEquals` assertions.  
+:pencil2: The test output should now be easier to diagnose.  
 
 ### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
