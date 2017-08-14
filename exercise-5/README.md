@@ -75,9 +75,8 @@ Finally, the `LaunchControl` class is free of any hard dependency. It now accept
 ## Mocks and stubs
 
 A _mock_ is a dummy implementation of an interface or abstract class that we create and inject during testing so that we can test our code in isolation. We typically use a framework for creating mocks when we're writing tests.
-However, to get a good understanding of how this works in simple cases, we're not going to use a framework today but rather make our own dummy implementations for testing purposes.
 
-> A popular mocking framework for Java is [mockito](http://site.mockito.org/)
+A popular mocking framework for Java is [mockito](http://site.mockito.org/). Exercise 5 already has mockito installed (it's listed as a dependency in `pom.xml`).
 
 A _stub_ is the exact same thing as a mock! Well, it's the same thing in code implementation. The difference between mocks and stubs lie in how we, as programmers, think about them when we read code.
 
@@ -90,15 +89,147 @@ If we just want a method to return a certain value so that a certain condition i
 
 > Different test frameworks has different implementations and ideas for mocks and stubs. Some frameworks call everything a mock, some differentiate between the two in significant ways.
 
-**Do the following:**
+### Demo of implementing a test using Mockito
 
-- If you haven't already, create the classes `RocketLauncherStub.java` and `PreFlightChecksStub.java` which implement the interfaces you might expect them to.
-- In `LaunchControlTest.java`, create the following tests:
-    - `executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket`
-    - `executeLaunch_whenHasFuelAndDoorIsNotClosed_doesNotLaunchRocket`
-    - `executeLaunch_whenHasFuelAndDoorIsClosed_launchesRocket`
-    - `executeLaunch_whenNoFuelAndDoorIsClosed_doesNotLaunchRocket`
-- Make all tests pass
+I'll use the test `executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket` as the example (from the tasks you're about to do).
+
+The name of this test states that we want to:
+1. Setup our environment (_"Arrange"_) to have no fuel (`PreFlightChecks.hasFuel()` should return false when called), and the space shuttle door should not be closed (`PreFlightChecks.isDoorClosed()` should also return false when called).
+1. Call the `executeLaunch()` method on our `LaunchControl` class (_"Act"_). This is the thing we're testing (also sometimes referred to as the System Under Test or SUT).
+2. _"Assert"_ that `RocketLauncher.launchRocket()` was _not_ called.
+
+#### Preparations
+
+I've already made my `LaunchControl` depend on interfaces only:
+
+```java
+// src/main/java/spacecenter/PreFlightChecks.java
+public interface PreFlightChecks {
+    Boolean hasFuel();
+    Boolean isDoorClosed();
+}
+```
+
+```java
+// src/main/java/spacecenter/RocketLauncher.java
+public interface RocketLauncher {
+    void launchRocket();
+}
+```
+
+```java
+// src/main/java/spacecenter/LaunchControl.java
+public class LaunchControl {
+  /* ... */
+  private RocketLauncher rocketLauncher;
+  private PreFlightChecks preFlightChecks;
+
+  public LaunchControl(PreFlightChecks preFlightChecks, RocketLauncher rocketLauncher) {
+      this.rocketLauncher = rocketLauncher;
+      this.preFlightChecks = preFlightChecks;
+  }
+  /* ... */
+}
+```
+
+Let's start on the test now.
+
+```java
+// src/test/java/spacecenter/LaunchControlTest.java
+@Test
+public void executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket(){
+  /* todo: implement test */
+}
+```
+
+#### Arrange
+
+First, we must create a _mock_ of the `PreFlightChecks` and `RocketLauncher` interfaces, using Mockito.
+
+```java
+import static org.mockito.Mockito.mock;
+
+public class LaunchControlTest {
+
+    @Test
+    public void executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket(){
+        // Arrange
+        PreFlightChecks preFlightChecks = mock(PreFlightChecks.class);
+        RocketLauncher rocketLauncher = mock(RocketLauncher.class);
+    }
+}
+```
+
+Then we must make the pre-flight checks return false, as discussed earlier.
+
+```java
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+public class LaunchControlTest {
+
+    @Test
+    public void executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket(){
+        // Arrange
+        PreFlightChecks preFlightChecks = mock(PreFlightChecks.class);
+        when(preFlightChecks.hasFuel()).thenReturn(false);
+        when(preFlightChecks.isDoorClosed()).thenReturn(false);
+
+        RocketLauncher rocketLauncher = mock(RocketLauncher.class);
+    }
+}
+```
+
+Creating an instance of `LaunchControl` is also part of the Arrange-phase.
+
+```java
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+
+public class LaunchControlTest {
+
+    @Test
+    public void executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket(){
+        // Arrange
+        PreFlightChecks preFlightChecks = mock(PreFlightChecks.class);
+        when(preFlightChecks.hasFuel()).thenReturn(false);
+        when(preFlightChecks.isDoorClosed()).thenReturn(false);
+
+        RocketLauncher rocketLauncher = mock(RocketLauncher.class);
+
+        LaunchControl launchControl = new LaunchControl(preFlightChecks, rocketLauncher);
+    }
+}
+```
+
+#### Act
+
+We're now ready to act upon the thing we want to test - executing a launch.
+
+```java
+/* ... */
+launchControl.executeLaunch();
+```
+
+#### Assert
+
+Then we assert that everything went as expected: that `RocketLauncher.launchRocket()` was _not_ called.
+
+The completed test:
+
+![](../images/mock-1.png)
+
+### Do the following
+
+:pencil2: If you haven't already, create the classes `RocketLauncherStub.java` and `PreFlightChecksStub.java` which implement the interfaces you already created in the previous tasks.  
+:pencil2: In `LaunchControlTest.java`, create the following tests:
+```
+executeLaunch_whenNoFuelAndDoorIsNotClosed_doesNotLaunchRocket
+executeLaunch_whenHasFuelAndDoorIsNotClosed_doesNotLaunchRocket
+executeLaunch_whenHasFuelAndDoorIsClosed_launchesRocket
+executeLaunch_whenNoFuelAndDoorIsClosed_doesNotLaunchRocket
+```
+:pencil2: Implement the tests using Mockito and make them pass.  
 
 ## Adapter pattern
 
@@ -153,8 +284,12 @@ public class Agreement {
 }
 ```
 
-**Do the following:**
+### Do the following
 
-- Refactor `PreFlightChecks` to use the adapter pattern
-- Create `PreFligthChecksTests.java` in the test dir
-- Create test cases for each method that verifies the correct result is returned given "user" (fake) input. You control the user input as stubs in your tests.
+:pencil2: Refactor `PreFlightChecks` to use the adapter pattern instead of relying on the `new Scanner(System.in)` inside of each method.  
+:pencil2: Create `PreFligthChecksTests.java` in the test dir.  
+:pencil2: Create test cases for each method that verifies the correct result is returned given "user" (fake) input. You control the user input as _stubs_ in your tests. Use mockito to control the flow in each method.
+
+Phew! That's a lot of testing! Good job if you made it all the way through!
+
+### :1st_place_medal: All done! :1st_place_medal:  
