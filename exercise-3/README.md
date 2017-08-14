@@ -2,7 +2,7 @@
 
 This exercise will cover how to write good tests by following some good practices.
 
-You will learn how to:
+## You will learn how to:
 
 1. Create well named tests
 2. Keep things DRY
@@ -54,9 +54,9 @@ Take a look at some of tests we added in the previous exercises:
 - `canBlendOrangeAndAppleSmoothie`
 - `blendingOrangeAndAppleSmoothieConsumesOrangesAndApples`
 
-As you can se the names use the domain terms `blend`, `OrangeAndAppleSmoothie`. They´re also pretty descriptive and uses natural language to convey meaning.
+As you can se the names use the domain terms `blend`, `OrangeAndAppleSmoothie`. They´re also pretty descriptive and uses natural language to convey meaning. When reading those test names, you can be pretty confident you know what they do, without reading any code. The names also explains how the domain works - how the smoothie bar should work.
 
-- See if you can rename some of the other tests you made using these rules
+:pencil2: See if you can rename some of the other tests you made using these rules
 
 ### Alternate naming convention
 
@@ -69,7 +69,7 @@ You may have noticed that the arrange-part of the tests have some duplicated cod
 - Refactor the common arrange code into a method
 - Add the `@Before` syntax to the method
 - Run the tests to make sure they still pass
-- Observe that the `@Before` annotated method runs before each test 
+- Observe that the `@Before` annotated method runs before each test
 
 ### Magic numbers
 
@@ -89,7 +89,7 @@ When diagnosing why tests fail it is very helpful to have tests output detailed 
 
 To make tests easier to diagnose, we can use the `assertEquals` assertion. `assertEquals` can be used to compare expected values to actual values:
 
-Syntax: 
+Syntax:
 ```java
 assertEquals(1, someNumber)
 ```
@@ -122,4 +122,4 @@ Actual :0
 - Replace the `assertTrue` assertions in the test with `assertEquals` assertions
 - The test output should now be easier to diagnose
 
-### [Go to exercise 4 ==>](../exercise-4/README.md)
+### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
