@@ -215,6 +215,11 @@ launchControl.executeLaunch();
 
 Then we assert that everything went as expected: that `RocketLauncher.launchRocket()` was _not_ called.
 
+```java
+/* ... */
+verify(rocketLauncher, times(0)).launchRocket();
+```
+
 The completed test:
 
 ![](../images/mock-1.png)
