@@ -21,7 +21,7 @@ JUnit provides some syntax to check for exceptions in a test:
 :pencil2: Create a test that tests this logic (hint: It has something to do with restocking ingredients).  
 :pencil2: Run the test, see that test fails with the `IllegalStateException` as cause.  
 :pencil2: Use `expected` syntax above to make green again.  
-:pencil2: Seems like `blend`ing a smoothie also does something with exceptions. Write a test confirming this.
+:pencil2: What other behaviors causes `blend` to throw exception(s)? Write test(s) confirming the behavior.
 
 # 2.2. Failures and errors
 
