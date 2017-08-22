@@ -31,7 +31,7 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 4](exercise-4/)
 - [Exercise 5](exercise-5/)
 
-### Symbols and notation used in exercises
+### Symbols and notations used in exercises
 
 #### Icons with special meaning
 
