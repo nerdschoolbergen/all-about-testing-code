@@ -97,10 +97,10 @@ it contains.
 _Please read all the text below before starting_.
 
 :pencil2: Open exercise4 pom.xml file as a project in IntelliJ (same procedure as exercise 1).  
-:pencil2: Using TDD **only**, implement the ``parseMonth`` method for all 12 months. You can find a list of days in each month [here](http://www.howmanydaysin.com/).  
-:pencil2: You should go through the red-green-refactor cycle _12 times_ in this exercise, one for each month.  
+:pencil2: Using TDD **only**, implement the ``parseMonth`` method for at least 6 out of the 12 months. You can find a list of days in each month [here](http://www.howmanydaysin.com/).  
+:pencil2: You should go through the red-green-refactor cycle (at least) _6 times_ in this exercise, one for each month.  
 :poop: Copy & pasting code, or implementing more than one month at a time is strictly forbidden.  
-:exclamation: There should be at least one test per month.  
+:exclamation: There should be at least _one test per month_.  
 :exclamation: There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).  
 :exclamation: The point of this exercise is not to come up with the most clever date time/month parsing algorithm ever created. Simply assert that you expect the month `1` to return a month named `January` with `31` days, then implement the least amount of code to make that happen and repeat for the next month.
 
