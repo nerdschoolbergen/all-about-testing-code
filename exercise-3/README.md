@@ -64,7 +64,7 @@ Author Roy Osherove has coined another naming convention popular in C#/.NET prog
 
 ## 3.2. Don't repeat yourself
 
-You may have noticed that the arrange-part of the tests have some duplicated code. Often the arrange-part of tests for particular class/method have overlapping code. To make the arrange code more DRY, we can utilize the `@Before` annotation provided by JUnit.
+You may have noticed that the arrange-part of the tests have some duplicated code. Often the arrange-part of tests for a particular class/method may have overlapping code. To make the arrange code more DRY, we can utilize the `@Before` annotation provided by JUnit.
 
 :pencil2: Refactor the common arrange code into a method.  
 :pencil2: Add the `@Before` syntax to the method.  
