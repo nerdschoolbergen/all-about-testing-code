@@ -13,7 +13,7 @@ So how does this makes sense?
 
 ## :book: How to do TDD
 
-> :exclamation: This section contains a walkthrough of how to approach TDD. You should just read along, making sure you understand the workflow. You don't have to implement the calculator example yourself - it's only used in the below screenshots.
+> :exclamation: This section contains a walkthrough of how to approach TDD. You should just read along, making sure you understand the workflow. You don't have to implement the calculator example yourself, but the code is available in this directory if you want to follow along in IntelliJ either by just browsing and understanding the code as the text explains the steps, or you can implement it yourself if you desire.
 
 When following TDD, we always code in a certain pattern nicknamed "red-green-refactor".
 
