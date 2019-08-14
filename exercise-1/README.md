@@ -14,7 +14,7 @@ We are going to assume you have IntelliJ Community Edition installed.
 
 > **Before you begin**: Please make sure that you have the following installed:
 - IntelliJ Community Edition: [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-- Java dev kit: [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Java dev kit: [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 :pencil2: Start by selecting **"Import Project"** in the Welcome screen:
 
@@ -26,7 +26,7 @@ We are going to assume you have IntelliJ Community Edition installed.
 
 :pencil2: Then follow the steps, accepting the defaults in all windows.
 
-:pencil2: Make sure you select Java JDK 1.8.0 when prompted for project SDK. You might need to browse to the directory where the SDK is installed on your computer.
+:pencil2: Make sure you select Java JDK 11 when prompted for project SDK. You might need to browse to the directory where the SDK is installed on your computer.
 
 ![](../images/intellij-import-3.png)
 

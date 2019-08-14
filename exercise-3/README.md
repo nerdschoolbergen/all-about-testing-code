@@ -108,7 +108,7 @@ Supplying an identifying message makes the assertion error more readable:
 Syntax:
 
 ```java
-assertEquals(“Wrong quantity of stuff!”, 1, stuffQuantity);
+assertEquals(1, stuffQuantity, “Wrong quantity of stuff!”);
 ```
 
 Test failure output:
