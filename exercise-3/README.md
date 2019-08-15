@@ -67,9 +67,9 @@ Author Roy Osherove has coined another naming convention popular in C#/.NET prog
 You may have noticed that the arrange-part of the tests have some duplicated code. Often the arrange-part of tests for a particular class/method may have overlapping code. To make the arrange code more DRY, we can utilize the `@Before` annotation provided by JUnit.
 
 :pencil2: Refactor the common arrange code into a method.  
-:pencil2: Add the `@Before` syntax to the method.  
+:pencil2: Add the `@BeforeEach` syntax to the method.  
 :pencil2: Run the tests to make sure they still pass.  
-:book: Observe that the `@Before` annotated method runs before each test (the tests still passes, as before).  
+:book: Observe that the `@BeforeEach` annotated method runs before each test (the tests still passes, as before).  
 
 ### Magic numbers
 
