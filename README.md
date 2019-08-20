@@ -9,7 +9,7 @@ This lesson is oriented around teaching you how write automated tests in Java. I
 
 ## What you need
 - IntelliJ Community Edition: [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-- Java dev kit: [Java SE Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+- Java dev kit: [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ## How to get started
 
