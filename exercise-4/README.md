@@ -104,4 +104,4 @@ _Please read all the text below before starting_.
 :exclamation: There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative numbers).  
 :exclamation: The point of this exercise is not to come up with the most clever date time/month parsing algorithm ever created. Simply assert that you expect the month `1` to return a month named `January` with `31` days, then implement the least amount of code to make that happen and repeat for the next month.
 
-### [Go to exercise 5 :arrow_right:](../exercise-5/README.md)
+### [Go to Bonus exercise 1 :arrow_right:](../exercise-5/README.md)

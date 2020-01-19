@@ -29,7 +29,7 @@ This repository contains a set of exercises organized in folders. Each folder co
 - [Exercise 2](exercise-2/)
 - [Exercise 3](exercise-3/)
 - [Exercise 4](exercise-4/)
-- [Exercise 5](exercise-5/)
+- [Bonus exercise 1](exercise-5/)
 
 ### Symbols and notations used in exercises
 

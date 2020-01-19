@@ -1,6 +1,7 @@
-# Exercise 5 - Dependencies
+# Bonus exercise 1 - Dependencies
 
 This exercise will take you through how to deal with dependencies when working with unit tests.
+This exercise contains some more advanced concepts that we will touch upon in other Nerdschool workshops (Specifically [the S.O.L.I.D workshop](https://github.com/nerdschoolbergen/solid)). 
 
 ## :book: Identifying dependencies
 

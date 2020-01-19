@@ -18,6 +18,7 @@ JUnit provides some syntax to check for exceptions in a test:
 void test() {
     assertThrows(Exception.class, () -> ...)
 }
+```
 
 :pencil2: Take a look at the `SmoothieBar` class. The `blend` method will throw a `IllegalStateException` if the stock of ingredients required for the smoothie to be blended is to low.  
 :pencil2: Create a test that tests this logic (hint: It has something to do with restocking ingredients).  
