@@ -82,7 +82,7 @@ public void canBlendOrangeAndAppleSmoothie() {
 :pencil2: Make the test fail by making a change to the assertion and re-run the test.  
 :book: Observe what happens in the Test Runner.  
 
-The `assertTrue` assertion is one of many built in to the JUnit framework. [More about assertions here](https://github.com/junit-team/junit4/wiki/Assertions).
+The `assertTrue` assertion is one of many built in to the JUnit framework. [More about assertions here](https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions).
 
 We also want to test that the `SmoothieBar` class consumes oranges and apples from its stock when a smoothie is made.
 
