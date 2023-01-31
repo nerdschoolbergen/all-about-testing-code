@@ -2,7 +2,7 @@
 
 Learn how and why to write automated tests for your code.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1M973PhmRW7lqqUoPwYqbWzw1luLgqravQKb8-u9_kz4)
+## [Open presentation slides](https://docs.google.com/presentation/d/1NKQcDhRpkMft6B3PLSymnGXQaacDIx-O)
 
 ## Focus of this lesson
 This lesson is oriented around teaching you how write automated tests in Java. In order to get the most out of the lesson basic programming skills are required.

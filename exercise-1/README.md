@@ -14,31 +14,29 @@ We are going to assume you have IntelliJ Community Edition installed.
 
 > **Before you begin**: Please make sure that you have the following installed:
 - IntelliJ Community Edition: [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-- Java dev kit: [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- Java dev kit: [Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/)
 
-:pencil2: Start by selecting **"Import Project"** in the Welcome screen:
+:pencil2: Start by selecting **"Open"** in the Welcome screen, and navigate to the directory 
+where you cloned the `all-about-testing-code` repository. Make sure the directory `all-about-testing-code` is selected
+(not one of the files or directories contained inside), and select "Open".
 
-![](../images/intellij-open.png)
+![Open project](../images/intellij-open.png)
 
-:pencil2: Then browse to, and select, the `pom.xml` file under the **"exercise-1"** folder.
+Next, right click `exercise-1/pom.xml` and select "Add as Maven Project". This will ensure IntelliJ recognizes the 
+directory as a Java project using Maven. By doing this you'll get syntax highlighting, code completion and enable you 
+to build the code and run the tests. 
 
-![](../images/intellij-open-pom.png)
+![Add as maven project](../images/add-as-maven-project.png)
 
-:pencil2: Then follow the steps, accepting the defaults in all windows.
+:pencil2: After finishing the import steps, your project structure should look like the below screenshot. 
+IntelliJ should pick up that `src/test/java` is a content root for tests and color it light green.
 
-:pencil2: Make sure you select Java JDK 11 when prompted for project SDK. You might need to browse to the directory where the SDK is installed on your computer.
+:pencil2: Open the `SmoothieBarTest` file and click the green circle/arrow next to the line numbers. 
+Run the tests for the file. The result should look something like this:
 
-![](../images/intellij-import-3.png)
+![Intellij starting point](../images/intellij-starting-point.png)
 
-:pencil2: After finishing the import steps, your project structure should look like the below screenshot. IntelliJ should've picked up that `src/test/java` is a content root for tests and color it light green.
-
-![](../images/intellij-starting-point.png)
-
-:pencil2: Open the `SmoothieBarTest` file and click the green circle/arrow next to the line numbers. Run the tests for the file.
-
-![](../images/intellij-starting-point-run-tests.png)
-
-You should see same test result as the earlier screenshot
+Note the output at the bottom of the screen: 
 
 ```
 Hello Nerdschool
