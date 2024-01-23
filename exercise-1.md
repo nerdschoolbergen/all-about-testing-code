@@ -20,15 +20,7 @@ We are going to assume you have IntelliJ Community Edition installed.
 
 :pencil2: Start by selecting **"Open"** in the Welcome screen, and navigate to the directory
 where you cloned the `all-about-testing-code` repository. Make sure the directory `all-about-testing-code` is selected
-(not one of the files or directories contained inside), and select "Open".
-
-![Open project](images/intellij-open.png)
-
-Next, right click `exercise-1/pom.xml` and select "Add as Maven Project". This will ensure IntelliJ recognizes the
-directory as a Java project using Maven. By doing this you'll get syntax highlighting, code completion and enable you
-to build the code and run the tests.
-
-![Add as maven project](images/add-as-maven-project.png)
+and select "Open".
 
 :pencil2: After finishing the import steps, your project structure should look like the below screenshot.
 IntelliJ should pick up that `src/test/java` is a content root for tests and color it light green.
@@ -80,17 +72,18 @@ public void canBlendOrangeAndAppleSmoothie() {
     smoothieBar.restockApples(2);
     smoothieBar.restockOranges(2);
     Smoothie smoothie = smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
-    assertTrue(smoothie.getKind() == SmoothieKind.OrangeAndAppleSmoothie);
+    assertEquals(SmoothieKind.OrangeAndAppleSmoothie, smoothie.getKind());
 }
 ```
 
 :pencil2: Run the test, and see that it passes (marked green in the Test Runner).  
-:book: Notice the JUnit `assertTrue` method call. This method tests that the given boolean expression is true. If not,
+:book: Notice the JUnit `assertEquals` method call. This method tests that the given first (expected) value is equal 
+to the second (actual) value. If not,
 the test fails.  
 :pencil2: Make the test fail by making a change to the assertion and re-run the test.  
 :book: Observe what happens in the Test Runner.
 
-The `assertTrue` assertion is one of many built in to the JUnit
+The `assertEquals` assertion is one of many built in to the JUnit
 framework. [More about assertions here](https://junit.org/junit5/docs/current/user-guide/#writing-tests-assertions).
 
 We also want to test that the `SmoothieBar` class consumes oranges and apples from its stock when a smoothie is made.
@@ -105,8 +98,8 @@ public void blendingOrangeAndAppleSmoothieConsumesOrangesAndApples() {
     smoothieBar.restockApples(2);
     smoothieBar.restockOranges(2);
     Smoothie smoothie = smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
-    assertTrue(smoothieBar.getApplesInStock() == 0);
-    assertTrue(smoothieBar.getOrangesInStock() == 0);
+    assertEquals(0, smoothieBar.getApplesInStock());
+    assertEquals(0, smoothieBar.getOrangesInStock());
 }
 ```
 
@@ -134,4 +127,4 @@ breaks to make it clearer.
 :exclamation: You should use _Given_, _Where_, _What_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
 this workshop. It's not strictly a common thing to do in production code, but it'll be helpful when getting started.
 
-### [Go to exercise 2 :arrow_right:](../exercise-2/README.md)
+### [Go to exercise 2 :arrow_right:](exercise2.md)

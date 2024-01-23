@@ -21,8 +21,14 @@ public final class SmoothieBar {
         int requiredOranges = smoothieKind.getRequiredOranges() * size;
         int requiredBananas = smoothieKind.getRequiredBananas() * size;
 
-        if (requiredApples > applesInStock || requiredOranges > orangesInStock || requiredBananas > bananasInStock) {
-            throw new IllegalStateException();
+        if (requiredApples > applesInStock) {
+            throw new IllegalStateException("Not enough apples. Need " + requiredApples + ", but have " + applesInStock);
+        }
+        if (requiredOranges > orangesInStock) {
+            throw new IllegalStateException("Not enough oranges. Need " + requiredOranges + ", but have " + orangesInStock);
+        }
+        if (requiredBananas > bananasInStock) {
+            throw new IllegalStateException("Not enough bananas. Need " + requiredBananas + ", but have " + bananasInStock);
         }
 
         applesInStock -= requiredApples;
