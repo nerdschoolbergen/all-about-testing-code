@@ -141,4 +141,4 @@ Actual :0
 :pencil2: Replace the `assertTrue` assertions in the test with `assertEquals` assertions.  
 :pencil2: The test output should now be easier to diagnose.
 
-### [Go to exercise 4 :arrow_right:](../exercise-4/README.md)
+### [Go to exercise 4 :arrow_right:](exercise-4.md)

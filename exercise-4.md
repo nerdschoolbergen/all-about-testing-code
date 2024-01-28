@@ -93,24 +93,199 @@ Write the test, implement the feature, make the test pass, refactor.
 
 ## Tasks
 
-Exercise 4 contains a skeleton for a simple ``MonthParser`` class. It has one function: `parseMonth(int numberOfMonth)`
-which given a number, returns a ``Month`` instance containing the month's name ("January", "February", etc) and the
-number of days
-it contains.
+Exercise 4 contains a skeleton for a simple ``RomanNumeralConverter`` class. It has one function: `String toRomanNumeral(int value)`
+which given a number, returns a String representing that number in roman numerals. For instance, 3 should return "III",
+and 9 should return "IX"; 
 
-_Please read all the text below before starting_.
+Here are the first 21 roman numerals
 
-:pencil2: Open exercise4 pom.xml file as a project in IntelliJ (same procedure as exercise 1).  
-:pencil2: Using TDD **only**, implement the ``parseMonth`` method for at least 6 out of the 12 months. You can find a
-list of days in each month [here](http://www.howmanydaysin.com/).  
-:pencil2: You should go through the red-green-refactor cycle (at least) _6 times_ in this exercise, one for each
-month.  
-:poop: Copy & pasting code, or implementing more than one month at a time is strictly forbidden.  
-:exclamation: There should be at least _one test per month_.  
-:exclamation: There should be tests making sure we cannot enter invalid numbers (only 1 through 12 allowed, no negative
-numbers).  
-:exclamation: The point of this exercise is not to come up with the most clever date time/month parsing algorithm ever
-created. Simply assert that you expect the month `1` to return a month named `January` with `31` days, then implement
-the least amount of code to make that happen and repeat for the next month.
+| Value | Symbol |
+|-------|--------|
+| 1     | I      |
+| 2     | II     |
+| 3     | III    |
+| 4     | IV     |
+| 5     | V      |
+| 6     | VI     |
+| 7     | VII    |
+| 8     | VIII   |
+| 9     | IX     |
+| 10    | X      |
+| 11    | XI     |
+| 12    | XII    |
+| 13    | XIII   |
+| 14    | XIV    |
+| 15    | IV     |
+| 16    | XVI    |
+| 17    | XVII   |
+| 18    | XVIII  |
+| 19    | XIX    |
+| 20    | XX     |
+| 21    | XXI    |
 
-### [Go to Bonus exercise 1 :arrow_right:](../exercise-5/README.md)
+
+### Task 1
+
+:pencil2: Open the `RomanNumeralTest` and run it. It should turn green
+
+:pencil2: Add a test that checks if toRomanNumeral returns "II" if you pass it 2. You can copy and paste
+the code below. Run the test, make sure it fails.
+
+```java
+@Test
+void two_is_II() {
+    RomanNumeralConverter converter = new RomanNumeralConverter();
+    String romanNumeral = converter.toRomanNumeral(2);
+    assertEquals("II", romanNumeral);
+}
+```
+
+Once you have seen the test fail, add the simplest, most naive code you can in order to make the test pass (green).
+You could for instance use an if-else statement that returns "I" if the value is 1, or "II" if the value is 2.
+
+Don't worry, we'll refactor this later!
+
+### Task 2
+You may have recognized that our two tests are quite similar. If we continue to copy and paste the first test, 
+only changing the input and expected output, there is going to be a bit of duplication. 
+
+Move the `converter` variable out of each test and into the `RomanNumeralTest` class as an instance variable. 
+Create a setup method annotated with `@BeforeEach` that initializes that variable. 
+
+It could look something like this:
+
+```java
+package exercise4;
+
+import org.junit.jupiter.api.BeforeEach;
+
+public class RomanNumeralTest {
+    RomanNumeralConverter converter;
+    
+    @BeforeEach 
+    public void setUp() {
+        // initialize the converter here
+    }
+    
+    // Other test methods 
+}
+```
+
+### Task 3
+Add a test that checks if toRomanNumeral returns "III" if you pass it 3. Run the test, make sure it fails, 
+and *then* implement the functionality in the most naive way possible. You could for instance continue to 
+use if-else statements. Remember to run all the tests, so that you don't break the other two.
+
+### Task 4
+Now that you have implemented a bit of functionality, it's time to start thinking about refactoring. If you've
+written the code as naively as we suggested, it might look a bit like this: 
+
+```java 
+public class RomanNumeralConverter {
+    public String toRomanNumeral(int value) {
+        if (value == 3) return "III";
+        else if (value == 2) return "II";
+        return "I";
+    }
+}
+```
+
+This clearly can't continue. We need a more general approach for the first three roman numerals. 
+
+:exclamation: We are *not* adding more functionality in this step. We are simply going to make the implementation for 
+the first three roman numerals more elegant.
+
+One possible (very naive) algorithm for converting from decimal to roman numerals goes a little something like this: 
+
+- let `result` be an empty string
+- while `number > 0`
+  - append `I` to `result`
+  - subtract 1 from `number`
+- return `result`
+
+:pencil2: Refactor the code using the algorithm above. Do not expand to other numerals like "IV" now. Run the tests
+frequently, making sure not to break them. 
+
+### Task 5
+
+It's finally time to add support for a few bigger numbers. It's a good idea to treat "I", "IV", "V", "IX" and "X" as
+separate cases, since this allows us to expand the algorithm above. 
+
+The modified algorithm could look something like this: 
+
+- let `result` be an empty string
+- while `number > 0`
+  - if `number >= 4`
+    - append `IV` to `result`
+    - subtract 4 from `number`
+  - else
+    - append `I` to `result`
+    - subtract 1 from `number`
+- return `result`
+
+:pencil2: Add a test that checks if toRomanNumeral returns "IV" if you pass it 4. Run all the tests, make sure 
+the new test fails, and *then* implement the functionality according to the above algorithm. When all tests turn
+green, you're done.
+
+### Task 6
+
+We're ready to tackle "V". In doing so, we'll create more duplication that we'll refactor afterwards. First, 
+we'll simply expand our algorithm to handle "V" as a separate case. 
+
+The modified algorithm could look something like this:
+
+- let `result` be an empty string
+- while `number > 0`
+    - if `number >= 5`
+        - append `V` to `result`
+        - subtract 5 from `number`
+    - else if `number >= 4`
+        - append `IV` to `result`
+        - subtract 4 from `number`
+    - else
+        - append `I` to `result`
+        - subtract 1 from `number`
+- return `result`
+
+You may be starting to se a pattern here, but let's crack on the naive way for now, and refactor later. Note 
+that we are starting with the biggest numeral we know, and working our way down. That's going to be important
+when we refactor later.
+
+:pencil2: Add a test that checks if toRomanNumeral returns "V" if you pass it 5. Run all the tests, make sure
+the new test fails, and *then* implement the functionality according to the above algorithm. When all tests turn
+green, you're done. 
+
+
+### Task 7
+
+If you've done everything correctly up until now, the code should correctly return "VI" if you pass it 6.
+Write a test and try it out!
+
+### Task 8
+
+If you've made it this far, it's time to make this more elegant. While it works, the if-else-statements are going 
+to be pretty long in order to support all the numerals I (1), IV (4), V (5), IX (9), X (10), L (50), XC (90),
+C (100), D (500), CM (900), M (1000). What we want is to be able to list the numerals we support, and loop 
+through them, appending symbols to the result as we go.
+
+Start by refactoring the code you already have, without adding support for IX and X and so on yet. We suggest
+the following algorithm: 
+
+- let `result` be an empty string
+- let `numerals` be a list of `RomanNumeral` instances representing the values (5, "V"), (4, "IV"), (1, "I")
+- while `number > 0`
+  - for `numeral` in `numerals`: 
+    -  if `number >= numeral.value`
+      - subtract `numeral.value` from `number`
+      - append `numeral.symbol` to `result` 
+- return `result`
+
+
+:pencil2: Without adding any tests, refactor the code according to the above algorithm. Run the tests 
+frequently. 
+
+:pencil2: When all the tests pass, add a test for "IX", make it fail, implement it, make sure all tests pass, and so on.
+
+:pencil2: Add a test that checks that the code returns "MCMXCVII" if you pass it 1997.
+
+### [Go to Bonus exercise 1 :arrow_right:](exercise-5.md)

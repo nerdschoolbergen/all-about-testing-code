@@ -47,4 +47,4 @@ Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testError.png)
 - Modify the `canBlendOrangeAndAppleSmoothie` test so that it is marked as failed the Test
   Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testFailed.png)
 
-### [Go to exercise 3 :arrow_right:](../exercise-3/README.md)
+### [Go to exercise 3 :arrow_right:](exercise-3.md)
