@@ -277,7 +277,8 @@ the following algorithm:
   - for `numeral` in `numerals`: 
     -  if `number >= numeral.value`
       - subtract `numeral.value` from `number`
-      - append `numeral.symbol` to `result` 
+      - append `numeral.symbol` to `result`
+      - `break` out of for-loop
 - return `result`
 
 
