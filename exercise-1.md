@@ -127,4 +127,4 @@ breaks to make it clearer.
 :exclamation: You should use _Given_, _Where_, _What_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
 this workshop. It's not strictly a common thing to do in production code, but it'll be helpful when getting started.
 
-### [Go to exercise 2 :arrow_right:](exercise2.md)
+### [Go to exercise 2 :arrow_right:](exercise-2.md)
