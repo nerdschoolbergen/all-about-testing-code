@@ -58,7 +58,7 @@ The code has the following structure:
 
 We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 
-## 1.3 Creating your first unit tests
+## 1.3. Creating your first unit tests
 
 Let's start by creating a test that'll test if the `SmoothieBar` class can blend an orange and apple smoothie.
 
@@ -107,7 +107,7 @@ public void blendingOrangeAndAppleSmoothieConsumesOrangesAndApples() {
 :pencil2: You can also run all tests at once by clicking the green arrow beside the test class name.  
 :pencil2: Add a similar test for creating a banana and apple smoothie.
 
-## 1.3. Test structure
+## 1.4. Test structure
 
 It is good practice to use the following structure when writing tests:
 
@@ -121,10 +121,10 @@ It is good practice to use the following structure when writing tests:
     - What are the changes that happened?
     - The post-condition
 
-:pencil2: Identify the _Given_, _When_, _What_ sections of the tests you just wrote by inserting comments and line
+:pencil2: Identify the _Given_, _When_, _Then_ sections of the tests you just wrote by inserting comments and line
 breaks to make it clearer.
 
-:exclamation: You should use _Given_, _Where_, _What_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
+:exclamation: You should use _Given_, _Where_, _Then_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
 this workshop. It's not strictly a common thing to do in production code, but it'll be helpful when getting started.
 
 ### [Go to exercise 2 :arrow_right:](exercise-2.md)
