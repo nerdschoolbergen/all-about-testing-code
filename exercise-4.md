@@ -264,8 +264,8 @@ Write a test and try it out!
 ### Task 8
 
 If you've made it this far, it's time to make this more elegant. While it works, the if-else-statements are going 
-to be pretty long in order to support all the numerals I (1), IV (4), V (5), IX (9), X (10), L (50), XC (90),
-C (100), D (500), CM (900), M (1000). What we want is to be able to list the numerals we support, and loop 
+to be pretty long in order to support all the numerals I (1), IV (4), V (5), IX (9), X (10), XL (40), L (50), XC (90),
+C (100), CD (400), D (500), CM (900), M (1000). What we want is to be able to list the numerals we support, and loop 
 through them, appending symbols to the result as we go.
 
 Start by refactoring the code you already have, without adding support for IX and X and so on yet. We suggest
