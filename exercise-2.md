@@ -42,9 +42,9 @@ An important distinction in software testing is the difference between failures 
 Failures means the code under test is broken. Errors might mean the test is broken or the code under test is broken.
 
 :pencil2: Make the test you just made not pass again and see that the test was marked with the error icon in the Test
-Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testError.png)
+Runner: ![error](https://resources.jetbrains.com/help/img/idea/2024.3/app.expui.run.testError_dark.svg)
 
 - Modify the `canBlendOrangeAndAppleSmoothie` test so that it is marked as failed the Test
-  Runner: ![failed](https://www.jetbrains.com/help/img/idea/2016.3/testFailed.png)
+  Runner: ![failed](https://resources.jetbrains.com/help/img/idea/2024.3/app.expui.run.testFailed_dark.svg)
 
 ### [Go to exercise 3 :arrow_right:](exercise-3.md)

@@ -76,7 +76,7 @@ public void canBlendOrangeAndAppleSmoothie() {
 }
 ```
 
-:pencil2: Run the test, and see that it passes (marked green in the Test Runner).  
+:pencil2: Run the test, and see that it passes (marked green in the Test Runner: <img src="https://resources.jetbrains.com/help/img/idea/2024.3/app.expui.run.testPassed_dark.svg" />).  
 :book: Notice the JUnit `assertEquals` method call. This method tests that the given first (expected) value is equal 
 to the second (actual) value. If not,
 the test fails.  
