@@ -43,11 +43,11 @@ Process finished with exit code 0
 In the introductory exercises you will be working with a simple, ready made example. The theme / "problem domain" is a
 smoothie bar that can blend different types of smoothies and keep track of the stock of ingredients. The smoothie bar is
 pretty limited, as they only use apples, oranges and bananas in smoothies, and can only serve three different kinds of
-smoothie: "Orange and apple smoothie", "Banana and apple smoothe" and "Orange and banana smoothie".
+smoothie: "Orange and apple smoothie", "Banana and apple smoothie" and "Orange and banana smoothie".
 
 The code has the following structure:
 
-- A `SmoothieKind` enum having three different enum values: `OrangeAndAppleSmoothie`, `BananaAndAppleSmoothe`
+- A `SmoothieKind` enum having three different enum values: `OrangeAndAppleSmoothie`, `BananaAndAppleSmoothie`
   and `OrangeAndBananaSmoothie`. Each smoothie has different recipes (how many apples, oranges and bananas required)
 - A `Smoothie` representing the beverage that the bar can blend. It has information about what `SmoothieKind` it is, and
   what ingredients it consists of
