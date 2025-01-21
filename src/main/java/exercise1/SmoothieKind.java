@@ -5,7 +5,7 @@ package exercise1;
  */
 public enum SmoothieKind {
     OrangeAndAppleSmoothie(2, 2, 0),
-    BananaAndAppleSmoothe(0, 2, 1),
+    BananaAndAppleSmoothie(0, 2, 1),
     OrangeAndBananaSmoothie(3, 0, 1);
 
     private final int requiredOranges;
