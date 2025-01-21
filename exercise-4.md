@@ -19,7 +19,7 @@ So how does this makes sense?
 
 When following TDD, we always code in a certain pattern nicknamed "red-green-refactor".
 
-![tdd](http://www.agilenutshell.com/assets/test-driven-development/tdd-circle-of-life.png)
+![tdd](images/red-green-refactor.png)
 
 ### Red
 
