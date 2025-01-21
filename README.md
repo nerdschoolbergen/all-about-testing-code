@@ -2,7 +2,7 @@
 
 Learn how and why to write automated tests for your code.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1NKQcDhRpkMft6B3PLSymnGXQaacDIx-O)
+## [Open presentation slides](https://docs.google.com/presentation/d/1Eq4N79dmjFLa3Fdr-MLR8AhscD_eZPfSbd7cGT2P8bs)
 
 ## Focus of this lesson
 
@@ -11,7 +11,7 @@ lesson basic programming skills are required.
 
 ## What you need
 
-- IntelliJ Community Edition: [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
+- IntelliJ IDEA: [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
 - Java dev kit: [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ## How to get started
@@ -23,10 +23,8 @@ lesson basic programming skills are required.
 
 ## Helpful resources
 
-- [IntelliJ video tutorials](https://www.jetbrains.com/idea/documentation/)
-- [IntelliJ for Eclipse users](https://www.jetbrains.com/help/idea/2016.3/eclipse.html)
-- [IntelliJ testing](https://www.jetbrains.com/help/idea/2016.3/testing.html)
-- [Error:java: javacTask: source release 8 requires target release 1.8](https://stackoverflow.com/questions/29888592/errorjava-javactask-source-release-8-requires-target-release-1-8)
+- [IntelliJ docs](https://www.jetbrains.com/help/idea/getting-started.html)
+- [IntelliJ testing](https://www.jetbrains.com/help/idea/tests-in-ide.html)
 
 ## Exercises
 

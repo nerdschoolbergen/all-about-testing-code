@@ -15,8 +15,8 @@ We are going to assume you have IntelliJ Community Edition installed.
 
 > **Before you begin**: Please make sure that you have the following installed:
 
-- IntelliJ Community Edition: [IntelliJ Community Edition](https://www.jetbrains.com/idea/download/)
-- Java dev kit: [Java SE Development Kit](https://www.oracle.com/java/technologies/downloads/)
+- IntelliJ IDEA: [IntelliJ IDEA](https://www.jetbrains.com/idea/download/)
+- Java dev kit: [Java SE Development Kit](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 :pencil2: Start by selecting **"Open"** in the Welcome screen, and navigate to the directory
 where you cloned the `all-about-testing-code` repository. Make sure the directory `all-about-testing-code` is selected
