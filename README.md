@@ -2,7 +2,7 @@
 
 Learn how and why to write automated tests for your code.
 
-## [Open presentation slides](https://docs.google.com/presentation/d/1Eq4N79dmjFLa3Fdr-MLR8AhscD_eZPfSbd7cGT2P8bs)
+## [Open presentation slides](https://docs.google.com/presentation/d/1zRsD480hCrCRgF79nMsoD6b5qlzyif0S-Pofqth4XDg)
 
 ## Focus of this lesson
 
