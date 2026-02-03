@@ -31,6 +31,25 @@ of ingredients required for the smoothie to be blended is to low.
 :pencil2: Use `expected` syntax above to make green again.  
 :pencil2: What other behaviors causes `blend` to throw exception(s)? Write test(s) confirming the behavior.
 
+Solution (don't look until you've tried!):
+<details>
+
+```Java
+@Test
+void cannotBlendOrangeAndAppleSmoothieWhenOutOfStock() {
+  // Given  
+  SmoothieBar smoothieBar = new SmoothieBar();
+  
+  // Then
+  assertThrows(IllegalStateException.class, () -> {
+    // When
+    smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
+  });
+}
+```
+
+</details>
+
 # 2.2. Failures and errors
 
 An important distinction in software testing is the difference between failures and errors.
