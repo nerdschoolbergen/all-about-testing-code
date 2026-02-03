@@ -59,7 +59,7 @@ The code has the following structure:
     - `getApplesInStock`, `getOrangesInStock` and `getBananasInStock` which gets the current stock of ingredients
     - `restockApples`, `restockOranges` and  `restockBananas` which lets you add ingredients to the stock
 
-See the [class diagram](class-diagram.md) for an overview of the classes and their relationships.
+See the [class diagram](smoothie-bar-class-diagram.md) for an overview of the classes and their relationships.
 
 We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 
