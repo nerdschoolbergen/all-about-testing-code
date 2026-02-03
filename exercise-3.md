@@ -74,8 +74,15 @@ it [here](http://osherove.com/blog/2005/4/3/naming-standards-for-unit-tests.html
 ## 3.2. Don't repeat yourself
 
 You may have noticed that the arrange-part of the tests have some duplicated code. Often the arrange-part of tests for a
-particular class/method may have overlapping code. To make the arrange code more DRY, we can utilize the `@Before`
-annotation provided by JUnit.
+particular class/method may have overlapping code. To make the arrange code more DRY, we can utilize the `@BeforeEach`
+annotation provided by JUnit. Example:
+
+```java
+@BeforeEach
+public void setup() {
+    // Arrange code here
+}
+```
 
 :pencil2: Refactor the common arrange code into a method.  
 :pencil2: Add the `@BeforeEach` syntax to the method.  
