@@ -132,4 +132,25 @@ breaks to make it clearer.
 :exclamation: You should use _Given_, _Where_, _Then_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
 this workshop. It's not strictly a common thing to do in production code, but it'll be helpful when getting started.
 
+Solution:
+<details>
+
+```java
+@Test
+public void blendingOrangeAndAppleSmoothieConsumesOrangesAndApples() {
+    // Given
+    SmoothieBar smoothieBar = new SmoothieBar();
+    smoothieBar.restockApples(2);
+    smoothieBar.restockOranges(2);
+    
+    // When
+    Smoothie smoothie = smoothieBar.blend(SmoothieKind.OrangeAndAppleSmoothie);
+    
+    // Then
+    assertEquals(0, smoothieBar.getApplesInStock());
+    assertEquals(0, smoothieBar.getOrangesInStock());
+}
+```
+</details>
+
 ### [Go to exercise 2 :arrow_right:](exercise-2.md)
