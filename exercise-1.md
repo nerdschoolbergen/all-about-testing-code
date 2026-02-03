@@ -43,7 +43,10 @@ Process finished with exit code 0
 In the introductory exercises you will be working with a simple, ready made example. The theme / "problem domain" is a
 smoothie bar that can blend different types of smoothies and keep track of the stock of ingredients. The smoothie bar is
 pretty limited, as they only use apples, oranges and bananas in smoothies, and can only serve three different kinds of
-smoothie: "Orange and apple smoothie", "Banana and apple smoothie" and "Orange and banana smoothie".
+smoothies:
+- "Orange and apple smoothie"
+- "Banana and apple smoothie"
+- "Orange and banana smoothie".
 
 The code has the following structure:
 
@@ -55,6 +58,8 @@ The code has the following structure:
     - `blend` - which takes `SmoothieKind` as a parameter and returns a `Smoothie`
     - `getApplesInStock`, `getOrangesInStock` and `getBananasInStock` which gets the current stock of ingredients
     - `restockApples`, `restockOranges` and  `restockBananas` which lets you add ingredients to the stock
+
+See the [class diagram](class-diagram.md) for an overview of the classes and their relationships.
 
 We are going to focus on testing the `SmoothieBar`-class in the next exercises.
 
