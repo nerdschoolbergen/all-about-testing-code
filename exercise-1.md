@@ -132,7 +132,7 @@ breaks to make it clearer.
 :exclamation: You should use _Given_, _Where_, _Then_, **or** _Arrange_, _Act_, _Assert_ comments in all your tests in
 this workshop. It's not strictly a common thing to do in production code, but it'll be helpful when getting started.
 
-Solution:
+Solution (don't look until you've tried!):
 <details>
 
 ```java
